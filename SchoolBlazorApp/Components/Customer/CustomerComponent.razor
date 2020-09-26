@@ -1,0 +1,9 @@
+﻿@using SchoolBlazorApp.Shared.pipes @*This can't be imported for code behind*@
+
+<div @onclick="OnClick">
+    <span>@Customer.Id </span>
+    <span>@Customer.FirstName.ReverseString().TitleCase() </span>
+    <span>@Customer.LastName </span>
+    <span>@(Customer.IsResident ? "(resident)" : "(not resident)")</span>
+    <div>@(Customer.TaxAmount.ToString("C2", zaCultureInfo))</div>
+</div>

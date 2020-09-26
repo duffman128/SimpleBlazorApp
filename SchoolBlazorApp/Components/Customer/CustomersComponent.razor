@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<div>
+    <input type="checkbox" @bind-value="HighlightResidents" />
+    <label>Highlight residents</label>
+</div>
+
+@if (customers != null)
+{
+    foreach (var cus in customers)
+    {
+    <div class="@(HighlightResidents && cus.IsResident ? "highlightresidents" : "")">
+        <CustomerComponent Customer="cus" OnCustomerClick="OnChildClick"/>
+    </div>
+    }
+}
+
+@if (!string.IsNullOrWhiteSpace(LastCustomerClicked))
+{
+    <h1>Last clicked was @LastCustomerClicked</h1>
+}
+
+<div>
+    <button type="button" @onclick="NavToAddCustomer">Add Customer</button>
+</div>

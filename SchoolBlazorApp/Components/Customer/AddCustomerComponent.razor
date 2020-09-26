@@ -1,0 +1,38 @@
+﻿@page "/addcustomer"
+@*This is routing in blazor*@
+
+<NavLink href="/">Go Home</NavLink>
+
+<EditForm Model="@customerVM" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div>
+        <label>
+            First Name:
+            <InputText id="firstname" @bind-Value="customerVM.FirstName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Last Name:
+            <InputText id="lastname" @bind-Value="customerVM.LastName" />
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Resident:
+            <InputCheckbox id="isresident" @bind-Value="customerVM.IsResident" />
+        </label>
+    </div>
+
+    <div>
+        <label>
+            Tax Amount:
+            <InputNumber id="taxamount" @bind-Value="customerVM.TaxAmount" />
+        </label>
+    </div>
+
+    <ValidationSummary />
+    <button type="submit">Submit</button>
+</EditForm>
